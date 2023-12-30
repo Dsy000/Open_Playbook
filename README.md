@@ -85,5 +85,4 @@ sudo systemctl enable semaphore
 sudo systemctl status semaphore
 ```
 
-Open browser enter URL :  http://serverip:3000
-```
+Open the browser enter URL :  http://serverip:3000
