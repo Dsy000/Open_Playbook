@@ -25,13 +25,13 @@ FLUSH PRIVILEGES;
 exit
 ```
 
-# Inatsll ansible
+# Install ansible
 ```
 sudo apt install ansible
 sudo apt install sshpass
 ```
 
-# Add below line in /etc/ssh/ssh_config
+# Add the below line in /etc/ssh/ssh_config
 ```
 vim /etc/ssh/ssh_config
 ---------------------------------------
