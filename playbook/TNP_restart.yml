@@ -1,0 +1,17 @@
+---
+- name: TNP_restart
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Tomcat,Nodeapp and PD restarting...
+      shell: |
+        echo "systemctl restart tomcat9 PD nodapp_daemon "
+        systemctl restart tomcat9 tomcat9 PD nodapp_daemon
+        echo "systemctl status tomcat9 PD nodapp_daemon"
+        systemctl status tomcat9 PD nodapp_daemon 
+      register: command_output
+
+    - name: Display Command Output
+      debug:
+        var: command_output.stdout_lines
