@@ -1,0 +1,16 @@
+---
+- name: Run Multi-Line Shell Command
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Run Multi-Line Shell Command
+      shell: |
+        echo "This is line 1"
+        echo "This is line 2"
+        echo "This is line 3"
+      register: command_output
+
+    - name: Display Command Output
+      debug:
+        var: command_output.stdout_lines
