@@ -1,0 +1,28 @@
+---
+- name: TNP_restart_v1
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Tomcat,Nodeapp and PD restarting...
+      systemd:
+        name: "{{ item }}"
+        state: restarted
+      loop:
+        - tomcat
+        - passwd_daemon
+        - nodapp_daemon
+
+    - name: Tomcat,Nodeapp and PD Status...
+      systemd:
+        name: "{{ item }}"
+        state: "{{ 'started' if item in services_running else 'stopped' }}"
+      loop:
+        - tomcat
+        - passwd_daemon
+        - nodapp_daemon
+      register: service_status_result
+
+    - name: Display Service Status
+      debug:
+        var: service_status_result.results
