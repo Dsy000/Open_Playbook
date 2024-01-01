@@ -6,10 +6,10 @@
   tasks:
     - name: Tomcat,Nodeapp and PD restarting...
       shell: |
-        echo "systemctl restart tomcat9 PD nodapp_daemon "
-        systemctl restart tomcat9 tomcat9 PD nodapp_daemon
-        echo "systemctl status tomcat9 PD nodapp_daemon"
-        systemctl status tomcat9 PD nodapp_daemon 
+        echo "sudo systemctl restart tomcat passwd_daemon nodapp_daemon.service "
+        sudo systemctl restart tomcat passwd_daemon nodapp_daemon.service
+        echo "sudo systemctl status tomcat passwd_daemon nodapp_daemon.service"
+        sudo systemctl status tomcat passwd_daemon nodapp_daemon.service
       register: command_output
 
     - name: Display Command Output
