@@ -2,6 +2,7 @@
 - name: TNP_restart_v1
   hosts: all
   become: yes
+  gather_facts: false
 
   tasks:
     - name: Tomcat,Nodeapp and PD restarting...
