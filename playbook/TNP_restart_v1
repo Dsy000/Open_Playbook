@@ -15,9 +15,7 @@
         - nodapp_daemon
         
     - name: Tomcat,Nodeapp and PD status...
-      shell: |
-            echo "sudo systemctl status tomcat passwd_daemon nodapp_daemon.service"
-            sudo systemctl status tomcat passwd_daemon nodapp_daemon.service
+      command: sudo systemctl status tomcat passwd_daemon nodapp_daemon.service
       register: command_output
     
     - name: Display Command Output
