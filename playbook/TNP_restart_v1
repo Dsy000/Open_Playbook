@@ -13,16 +13,13 @@
         - tomcat
         - passwd_daemon
         - nodapp_daemon
-
-    - name: Display Service Status
-      debug:
-        var: service_status_result.results
+        
     - name: Tomcat,Nodeapp and PD status...
-          shell: |
+      shell:|
             echo "sudo systemctl status tomcat passwd_daemon nodapp_daemon.service"
             sudo systemctl status tomcat passwd_daemon nodapp_daemon.service
-          register: command_output
+      register: command_output
     
     - name: Display Command Output
-        debug:
-          var: command_output.stdout_lines
+      debug:
+        var: command_output.stdout_lines
