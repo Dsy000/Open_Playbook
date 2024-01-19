@@ -22,6 +22,6 @@
             sudo systemctl status tomcat passwd_daemon nodapp_daemon.service
           register: command_output
     
-        - name: Display Command Output
-          debug:
-            var: command_output.stdout_lines
+    - name: Display Command Output
+        debug:
+          var: command_output.stdout_lines
