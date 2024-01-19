@@ -13,16 +13,15 @@
         - passwd_daemon
         - nodapp_daemon
 
-    - name: Tomcat,Nodeapp and PD Status...
-      systemd:
-        name: "{{ item }}"
-        state: "{{ 'started' if item in services_running else 'stopped' }}"
-      loop:
-        - tomcat
-        - passwd_daemon
-        - nodapp_daemon
-      register: service_status_result
-
     - name: Display Service Status
       debug:
         var: service_status_result.results
+    - name: Tomcat,Nodeapp and PD status...
+          shell: |
+            echo "sudo systemctl status tomcat passwd_daemon nodapp_daemon.service"
+            sudo systemctl status tomcat passwd_daemon nodapp_daemon.service
+          register: command_output
+    
+        - name: Display Command Output
+          debug:
+            var: command_output.stdout_lines
